@@ -1,0 +1,152 @@
+[
+    {
+        "name": "prueba",
+        "price": "23",
+        "description": "prueba de producto",
+        "stock": "12"
+    },
+    {
+        "name": "prueba",
+        "price": "12",
+        "description": "erwe",
+        "stock": "12"
+    },
+    {
+        "name": "prueba2",
+        "price": "1",
+        "description": "efef",
+        "stock": "-12"
+    },
+    {
+        "name": "prueba",
+        "price": "12.68",
+        "description": "wfew",
+        "stock": "4"
+    },
+    {
+        "name": "prueba",
+        "price": "6.78",
+        "description": "wfwef",
+        "stock": "2"
+    },
+    {
+        "name": "prueba",
+        "price": "12",
+        "description": "sdswf",
+        "stock": "2"
+    },
+    {
+        "name": "prueba",
+        "price": "-12",
+        "description": "wdfewf",
+        "stock": "0"
+    },
+    {
+        "name": "prueba",
+        "price": "12",
+        "description": "wefew",
+        "stock": "2"
+    },
+    {
+        "name": "prueba",
+        "price": "12.4",
+        "description": "wefwef",
+        "stock": "1"
+    },
+    {
+        "name": "prueba",
+        "price": "12.67",
+        "description": "wfefw",
+        "stock": "12"
+    },
+    {
+        "name": "prueba2",
+        "price": "12",
+        "description": "wefwe",
+        "stock": "1"
+    },
+    {
+        "name": "prueba2",
+        "price": "12",
+        "description": "wefewf",
+        "stock": "1"
+    },
+    {
+        "name": "prueba2",
+        "price": "12",
+        "description": "wefwef",
+        "stock": "4"
+    },
+    {
+        "name": "prueba",
+        "price": "12",
+        "description": "fewfwe",
+        "category": "1",
+        "stock": "3"
+    },
+    {
+        "name": "prueba2",
+        "price": "12",
+        "description": "fewfwe",
+        "category": "Promocional",
+        "stock": "2"
+    },
+    {
+        "name": "pruebadefef",
+        "price": "0.2",
+        "description": "prorer",
+        "category": "Promocional",
+        "stock": "6"
+    },
+    {
+        "name": "prueba",
+        "price": "12",
+        "description": "ewewe",
+        "category": "Textil",
+        "stock": "3"
+    },
+    {
+        "code": "PROD12345",
+        "name": "prueba",
+        "description": "fewefwe",
+        "category": "Textil",
+        "price": "12",
+        "stock": "3"
+    },
+    {
+        "code": "PROD12345",
+        "name": "prueba",
+        "description": "wefwef",
+        "category": "Promocional",
+        "price": "12",
+        "stock": "3",
+        "image": "..\/img\/67b827b53acc0-pregunta.png"
+    },
+    {
+        "code": "PROD12345",
+        "name": "prueba",
+        "description": "ewfew",
+        "category": "Promocional",
+        "price": "12",
+        "stock": "3",
+        "image": "..\/img\/67b828ba3856f-profile.jpg"
+    },
+    {
+        "code": "PROD12345",
+        "name": "prueba",
+        "description": "wefwefwe",
+        "category": "Textil",
+        "price": "12",
+        "stock": "3",
+        "image": ".\/img\/67b829983da09_WhatsApp Image 2024-11-16 at 10.51.48 PM.jpeg"
+    },
+    {
+        "code": "PROD12345",
+        "name": "prueba",
+        "description": "fwefew",
+        "category": "Textil",
+        "price": "12",
+        "stock": "3",
+        "image": "..\/img\/67b829f06695f_WhatsApp Image 2024-11-16 at 10.51.48 PM.jpeg"
+    }
+]
