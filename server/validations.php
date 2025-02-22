@@ -6,5 +6,5 @@ function isText($var)
 
 function isCode($var)
 {
-    return preg_match('/^[PROD]{4}[0-9]{5}+$/', $var);
+    return preg_match('/^[P][R][O][D][0-9]{5}+$/', $var);
 }
