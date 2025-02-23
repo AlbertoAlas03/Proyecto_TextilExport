@@ -1,11 +1,1 @@
-[
-    {
-        "code": "PROD12345",
-        "name": "prueba",
-        "description": "rrwer",
-        "category": "Promocional",
-        "price": "12",
-        "stock": "1",
-        "image": "..\/img\/profile.jpg"
-    }
-]
+[]

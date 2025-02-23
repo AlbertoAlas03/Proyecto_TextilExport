@@ -3,6 +3,18 @@ include "validations.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $json = "../products.json";
 
+    // verify if the file exists
+    if (!file_exists($json)) {
+        echo json_encode(['error' => false, 'messageError' => 'El archivo de productos no existe.']);
+        exit;
+    }
+
+    $products = json_decode(file_get_contents($json), true);
+    if (json_last_error() !== JSON_ERROR_NONE) {
+        echo json_encode(['error' => false, 'messageError' => 'Error al leer el archivo JSON: formato inválido.']);
+        exit;
+    }
+
     $name = $_POST["productName"];
     $price = $_POST["productPrice"];
     $description = $_POST["productDescription"];
@@ -10,32 +22,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $category = $_POST["productCategory"];
     $code = $_POST["productCode"];
 
-    if (empty(trim($code))) {
-        echo json_encode(["error" => "El codigo del producto no puede estar vacío"]);
+    if (empty(trim($name)) || empty(trim($price)) || empty(trim($description)) || empty($stock) || empty($category) || empty(trim($code))) {
+        echo json_encode(['error' => false, 'messageError' => 'Por favor, rellene todos los campos.']);
         exit;
-    } else if (!isCode(trim($code))) {
-        echo json_encode(["error" => "Formato de código incorrecto"]);
+    } else if (!isText($name)) {
+        echo json_encode(['error' => false, 'messageError' => 'El nombre del producto solo puede contener letras y espacios.']);
         exit;
-    } else if (empty(trim($name))) {
-        echo json_encode(["error" => "El nombre del producto no puede estar vacía"]);
+    } else if (!isText($description)) {
+        echo json_encode(['error' => false, 'messageError' => 'La descripción del producto solo puede contener letras y espacios.']);
         exit;
-    } else if (!isText(trim($name))) {
-        echo json_encode(["error" => "El nombre del producto solo puede contener letras"]);
+    } else if (!isCode($code)) {
+        echo json_encode(['error' => false, 'messageError' => 'Formato de código incorrecto.']);
         exit;
-    } else if (empty(trim($description))) {
-        echo json_encode(["error" => "La descripción del producto no puede estar vacía"]);
+    } else if ($price < 0) {
+        echo json_encode(['error' => false, 'messageError' => 'Revise el precio ingresado.']);
         exit;
-    } else if (!isText(trim($description))) {
-        echo json_encode(["error" => "La descripción del producto solo puede contener letras"]);
-        exit;
-    } else if (empty($category) || $category == "Seleccione una categoría") {
-        echo json_encode(["error" => "Debe seleccionar una categoría"]);
-        exit;
-    } else if ($price <= 0) {
-        echo json_encode(["error" => "Revise el precio ingresado"]);
-        exit;
-    } else if ($stock <= 0) {
-        echo json_encode(["error" => "Revise el stock ingresado"]);
+    } else if ($stock < 0) {
+        echo json_encode(['error' => false, 'messageError' => 'Revise el stock ingresado.']);
         exit;
     }
 
@@ -59,15 +62,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // image path
                 $imagePath = $uploadFile;
             } else {
-                echo json_encode(["error" => "Error al insertar la imagen"]);
+                echo json_encode(["error" => false, "massageError" => "Error al insertar la imagen"]);
                 exit;
             }
         } else {
-            echo json_encode(["error" => "Formato de imagen no válido. Solo se permiten JPEG, PNG y JPG"]);
+            echo json_encode(["error" => false, "messageError" => "Formato de imagen no válido. Solo se permiten JPEG, PNG y JPG"]);
             exit;
         }
     } else {
-        echo json_encode(["error" => "Debes insertar una imagen"]);
+        echo json_encode(["error" => false, "messageError" => "Debes insertar una imagen"]);
         exit;
     }
 
@@ -92,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $products[] = $new_product;
     file_put_contents($json, json_encode($products, JSON_PRETTY_PRINT));
 
-    echo json_encode(["success" => "Producto agregado correctamente"]);
+    echo json_encode(["success" => true, "messageSuccess" => "Producto agregado correctamente"]);
 } else {
-    echo json_encode(["error" => "Error al guardar el producto"]);
+    echo json_encode(["error" => false, "MessageError" => "Error al guardar el producto"]);
 }

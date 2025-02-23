@@ -11,7 +11,7 @@ foreach ($products as $product) {
     if ($product['code'] === $code) {
         $found = true;
         echo json_encode(['success' => true, 'product' => $product]);
-        break;
+        exit;
     }
 }
 
