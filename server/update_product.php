@@ -66,7 +66,7 @@ if (isset($_FILES['productImage-edit']) && $_FILES['productImage-edit']['error']
     }
 }
 
-// Busca el producto a actualizar
+// find the product to update
 $foundIndex = -1;
 foreach ($products as $key => $product) {
     if ($product['code'] === $productCode) {
@@ -76,7 +76,7 @@ foreach ($products as $key => $product) {
 }
 
 if ($foundIndex !== -1) {
-    // Actualiza el producto
+    //update the product
     $products[$foundIndex]['name'] = $productName;
     $products[$foundIndex]['description'] = $productDescription;
     $products[$foundIndex]['category'] = $productCategory;
@@ -86,7 +86,7 @@ if ($foundIndex !== -1) {
         $products[$foundIndex]['image'] = $imagePath;
     }
 
-    // Guarda los datos actualizados en el archivo JSON
+    // saving the changes in the file
     if (file_put_contents($json, json_encode($products, JSON_PRETTY_PRINT))) {
         echo json_encode(['success' => true, 'messageSuccess' => 'Producto actualizado correctamente.']);
     } else {
